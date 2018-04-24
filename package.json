@@ -1,0 +1,41 @@
+{
+  "name": "monster-cms",
+  "version": "1.0.0",
+  "description": "MonsterCMS é um CMS MUITO rápido.",
+  "main": "server/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "homepage": "https://github.com/jersobh",
+  "author": {
+    "name": "Jeff Andrade",
+    "email": "jersobh@gmail.com",
+    "url": "https://github.com/jersobh"
+  },
+  "repository": "https://github.com/jersobh/MonsterCMS",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "cross-env": "^5.0.1",
+    "koa": "^2.3.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-mount": "^3.0.0",
+    "koa-static": "^4.0.1",
+    "koa-trie-router": "^2.1.5",
+    "nuxt": "^1.0.0-rc3",
+    "regenerator-runtime": "^0.11.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.3",
+    "backpack-core": "^0.7.0"
+  },
+  "scripts": {
+    "dev": "backpack dev",
+    "build": "nuxt build && backpack build",
+    "start": "cross-env NODE_ENV=production node build/main.js"
+  },
+  "keywords": [
+    "Koa2",
+    "Nuxt"
+  ],
+  "license": "MIT"
+}
