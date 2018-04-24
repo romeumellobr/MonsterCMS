@@ -1,11 +1,11 @@
 'use strict'
 
-const dbname = process.env.NODE_ENV === 'test' ? 'koatest' : 'koa'
+const dbname = process.env.NODE_ENV === 'test' ? 'MonsterCMS_Test' : 'MonsterCMS'
 
 export default {
   app: {
-    name: 'something',
-    version: '1.0.0'
+    name: 'MonsterCMS',
+    version: '0.0.1'
   },
   database: {
     driver: 'mongo',

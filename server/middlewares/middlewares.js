@@ -4,8 +4,8 @@
 // Check other Koa official middlewares: https://github.com/koajs
 import serve from 'koa-static'
 import bodyParser from 'koa-bodyparser'
-import config from './config'
-import routes from './routes'
+import config from '../config'
+import routes from '../routes'
 
 export default (app) => {
   // Catch and format the error in the upstream.

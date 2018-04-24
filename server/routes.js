@@ -1,6 +1,9 @@
 'use strict'
 
 import Router from 'koa-trie-router'
+const fs = require('fs');
+const jwt = require('./middlewares/jwt');
+const authenticate = require('./middlewares/authenticate.js');
 
 const router = new Router()
 
@@ -33,16 +36,22 @@ export default (app) => {
   // Home page.
   router.get('/', middleware1, middleware2, middleware3, async (ctx, next) => {
     ctx.type = 'json'
+
     ctx.body = {
-      message: 'Hello World!'
+        message: 'Olá!'
     }
+
   })
 
   // Get all users.
-  router.get('/users', async (ctx, next) => {
+  router.get('/users', jwt, async (ctx, next) => {
     ctx.type = 'json'
     ctx.body = users
   })
+
+  router.post('/api/login', async ( ctx, next) => {
+  authenticate(this);
+  });
 
   // Get the user by id.
   router.get('/users/:id', async (ctx, next) => {

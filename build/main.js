@@ -62,7 +62,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -72,12 +72,12 @@ module.exports =
 "use strict";
 
 
-var dbname =  false ? 'koatest' : 'koa';
+const dbname =  false ? 'MonsterCMS_Test' : 'MonsterCMS';
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   app: {
-    name: 'something',
-    version: '1.0.0'
+    name: 'MonsterCMS',
+    version: '0.0.1'
   },
   database: {
     driver: 'mongo',
@@ -102,23 +102,16 @@ var dbname =  false ? 'koatest' : 'koa';
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(6);
-
-
-/***/ }),
-/* 2 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_koa__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_koa__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_koa___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_koa__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_nuxt__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_nuxt__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_nuxt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_nuxt__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__config__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__middlewares__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__middlewares_middlewares__ = __webpack_require__(4);
 
 
 
@@ -126,38 +119,38 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-var app = new __WEBPACK_IMPORTED_MODULE_0_koa___default.a();
-var host = process.env.HOST || '127.0.0.1';
-var port = process.env.PORT || __WEBPACK_IMPORTED_MODULE_2__config__["a" /* default */].server.port;
+const app = new __WEBPACK_IMPORTED_MODULE_0_koa___default.a();
+const host = process.env.HOST || '127.0.0.1';
+const port = process.env.PORT || __WEBPACK_IMPORTED_MODULE_2__config__["a" /* default */].server.port;
 
 // Import and Set Nuxt.js options
-var nuxtConfig = __webpack_require__(12);
+let nuxtConfig = __webpack_require__(13);
 nuxtConfig.dev = !(app.env === 'production');
 
 // Instantiate nuxt.js
-var nuxt = new __WEBPACK_IMPORTED_MODULE_1_nuxt__["Nuxt"](nuxtConfig);
+const nuxt = new __WEBPACK_IMPORTED_MODULE_1_nuxt__["Nuxt"](nuxtConfig);
 
 // Build in development
 if (nuxtConfig.dev) {
-  var builder = new __WEBPACK_IMPORTED_MODULE_1_nuxt__["Builder"](nuxt);
-  builder.build().catch(function (e) {
+  const builder = new __WEBPACK_IMPORTED_MODULE_1_nuxt__["Builder"](nuxt);
+  builder.build().catch(e => {
     console.error(e); // eslint-disable-line no-console
     process.exit(1);
   });
 }
 
 // Middlewares are imported here.
-Object(__WEBPACK_IMPORTED_MODULE_3__middlewares__["a" /* default */])(app);
+Object(__WEBPACK_IMPORTED_MODULE_3__middlewares_middlewares__["a" /* default */])(app);
 
 // Hook Nuxt up!
 // https://github.com/nuxt-community/koa-template/blob/master/template/server/index.js
-app.use(function (ctx) {
+app.use(ctx => {
   ctx.status = 200; // koa defaults to 404 when it sees that status is unset
 
-  return new Promise(function (resolve, reject) {
+  return new Promise((resolve, reject) => {
     ctx.res.on('close', resolve);
     ctx.res.on('finish', resolve);
-    nuxt.render(ctx.req, ctx.res, function (promise) {
+    nuxt.render(ctx.req, ctx.res, promise => {
       // nuxt.render passes a rejected promise into callback on error.
       promise.then(resolve).catch(reject);
     });
@@ -167,30 +160,28 @@ app.use(function (ctx) {
 app.listen(port, host);
 
 /***/ }),
-/* 3 */
+/* 2 */
 /***/ (function(module, exports) {
 
 module.exports = require("koa");
 
 /***/ }),
-/* 4 */
+/* 3 */
 /***/ (function(module, exports) {
 
 module.exports = require("nuxt");
 
 /***/ }),
-/* 5 */
+/* 4 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_jeff_Projects_MonsterCMS_node_modules_babel_runtime_regenerator__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_jeff_Projects_MonsterCMS_node_modules_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__home_jeff_Projects_MonsterCMS_node_modules_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_koa_static__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_koa_static___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_koa_static__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_koa_bodyparser__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_koa_bodyparser___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_koa_bodyparser__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__config__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__routes__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_koa_static__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_koa_static___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_koa_static__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_koa_bodyparser__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_koa_bodyparser___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_koa_bodyparser__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__config__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__routes__ = __webpack_require__(7);
 
 
 // All middlewares are used here.
@@ -198,306 +189,182 @@ module.exports = require("nuxt");
 
 
 
-var _this = this;
-
-function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
 
 
-
-
-
-/* harmony default export */ __webpack_exports__["a"] = (function (app) {
+/* harmony default export */ __webpack_exports__["a"] = (app => {
   // Catch and format the error in the upstream.
   // https://github.com/koajs/koa/wiki/Error-Handling
-  app.use(function () {
-    var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__home_jeff_Projects_MonsterCMS_node_modules_babel_runtime_regenerator___default.a.mark(function _callee(ctx, next) {
-      return __WEBPACK_IMPORTED_MODULE_0__home_jeff_Projects_MonsterCMS_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _context.prev = 0;
-              _context.next = 3;
-              return next();
+  app.use(async (ctx, next) => {
+    try {
+      await next();
 
-            case 3:
+      // Handle 404 - throw it as an error.
+      if (ctx.status === 404 && ctx.res.headersSent === false) {
+        ctx.throw(404);
+      }
 
-              // Handle 404 - throw it as an error.
-              if (ctx.status === 404 && ctx.res.headersSent === false) {
-                ctx.throw(404);
-              }
+      // Use this when you want to format the 200 res further.
+      // e.g. {"status":200,"data":{"message":"Hello home sample!"}}
+      // else, you get, e.g. {"message":"Hello home sample!"}
+      if (ctx.status === 200 && ctx.res.headersSent === false) {
+        ctx.body = {
+          status: 200,
+          data: ctx.body
+        };
+      }
+    } catch (err) {
+      ctx.status = err.status || 500;
 
-              // Use this when you want to format the 200 res further.
-              // e.g. {"status":200,"data":{"message":"Hello home sample!"}}
-              // else, you get, e.g. {"message":"Hello home sample!"}
-              if (ctx.status === 200 && ctx.res.headersSent === false) {
-                ctx.body = {
-                  status: 200,
-                  data: ctx.body
-                };
-              }
-              _context.next = 13;
-              break;
+      ctx.type = 'json';
+      ctx.body = {
+        status: ctx.status,
+        message: err.message
+      };
 
-            case 7:
-              _context.prev = 7;
-              _context.t0 = _context['catch'](0);
-
-              ctx.status = _context.t0.status || 500;
-
-              ctx.type = 'json';
-              ctx.body = {
-                status: ctx.status,
-                message: _context.t0.message
-              };
-
-              ctx.app.emit('error', _context.t0, ctx);
-
-            case 13:
-            case 'end':
-              return _context.stop();
-          }
-        }
-      }, _callee, _this, [[0, 7]]);
-    }));
-
-    return function (_x, _x2) {
-      return _ref.apply(this, arguments);
-    };
-  }());
+      ctx.app.emit('error', err, ctx);
+    }
+  });
 
   // Static files are files that clients download as they are from the server.
   // Create a new directory, public. Koa, by default doesn't allow you to
   // serve static files.
   // https://github.com/koajs/static
   // https://www.tutorialspoint.com/koajs/koajs_static_files.htm
-  app.use(__WEBPACK_IMPORTED_MODULE_1_koa_static___default()(__WEBPACK_IMPORTED_MODULE_3__config__["a" /* default */].static_dir.root));
+  app.use(__WEBPACK_IMPORTED_MODULE_0_koa_static___default()(__WEBPACK_IMPORTED_MODULE_2__config__["a" /* default */].static_dir.root));
 
   // The parsed body will store in ctx.request.body
   // If nothing was parsed, body will be an empty object {}
   // https://github.com/koajs/bodyparser
   // https://github.com/koajs/koa/issues/719
-  app.use(__WEBPACK_IMPORTED_MODULE_2_koa_bodyparser___default()());
+  app.use(__WEBPACK_IMPORTED_MODULE_1_koa_bodyparser___default()());
 
   // Add routes by group.
-  var mount = __webpack_require__(11);
-  app.use(mount('/api', Object(__WEBPACK_IMPORTED_MODULE_4__routes__["a" /* default */])(app)));
+  const mount = __webpack_require__(12);
+  app.use(mount('/api', Object(__WEBPACK_IMPORTED_MODULE_3__routes__["a" /* default */])(app)));
 });
 
 /***/ }),
-/* 6 */
-/***/ (function(module, exports) {
-
-module.exports = require("regenerator-runtime");
-
-/***/ }),
-/* 7 */
+/* 5 */
 /***/ (function(module, exports) {
 
 module.exports = require("koa-static");
 
 /***/ }),
-/* 8 */
+/* 6 */
 /***/ (function(module, exports) {
 
 module.exports = require("koa-bodyparser");
 
 /***/ }),
-/* 9 */
+/* 7 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_jeff_Projects_MonsterCMS_node_modules_babel_runtime_regenerator__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_jeff_Projects_MonsterCMS_node_modules_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__home_jeff_Projects_MonsterCMS_node_modules_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_koa_trie_router__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_koa_trie_router___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_koa_trie_router__);
-
-
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_koa_trie_router__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_koa_trie_router___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_koa_trie_router__);
 
 
 var _this = this;
 
-function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
+const fs = __webpack_require__(9);
+const jwt = __webpack_require__(10);
+const authenticate = __webpack_require__(16);
 
+const router = new __WEBPACK_IMPORTED_MODULE_0_koa_trie_router___default.a();
 
-var router = new __WEBPACK_IMPORTED_MODULE_1_koa_trie_router___default.a();
+const middleware3 = async (ctx, next) => {
+  console.log('Time: ', Date.now());
+  await next();
+};
 
-var middleware3 = function () {
-  var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__home_jeff_Projects_MonsterCMS_node_modules_babel_runtime_regenerator___default.a.mark(function _callee(ctx, next) {
-    return __WEBPACK_IMPORTED_MODULE_0__home_jeff_Projects_MonsterCMS_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            console.log('Time: ', Date.now());
-            _context.next = 3;
-            return next();
+const middleware1 = async (ctx, next) => {
+  console.log("I'll be logged first. ");
+  await next();
+  console.log("I'll be logged last. ");
+};
 
-          case 3:
-          case 'end':
-            return _context.stop();
-        }
-      }
-    }, _callee, _this);
-  }));
-
-  return function middleware3(_x, _x2) {
-    return _ref.apply(this, arguments);
-  };
-}();
-
-var middleware1 = function () {
-  var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__home_jeff_Projects_MonsterCMS_node_modules_babel_runtime_regenerator___default.a.mark(function _callee2(ctx, next) {
-    return __WEBPACK_IMPORTED_MODULE_0__home_jeff_Projects_MonsterCMS_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
-      while (1) {
-        switch (_context2.prev = _context2.next) {
-          case 0:
-            console.log("I'll be logged first. ");
-            _context2.next = 3;
-            return next();
-
-          case 3:
-            console.log("I'll be logged last. ");
-
-          case 4:
-          case 'end':
-            return _context2.stop();
-        }
-      }
-    }, _callee2, _this);
-  }));
-
-  return function middleware1(_x3, _x4) {
-    return _ref2.apply(this, arguments);
-  };
-}();
-
-var middleware2 = function () {
-  var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__home_jeff_Projects_MonsterCMS_node_modules_babel_runtime_regenerator___default.a.mark(function _callee3(ctx, next) {
-    return __WEBPACK_IMPORTED_MODULE_0__home_jeff_Projects_MonsterCMS_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
-      while (1) {
-        switch (_context3.prev = _context3.next) {
-          case 0:
-            console.log("I'll be logged second. ");
-            _context3.next = 3;
-            return next();
-
-          case 3:
-            console.log("I'll be logged third. ");
-
-          case 4:
-          case 'end':
-            return _context3.stop();
-        }
-      }
-    }, _callee3, _this);
-  }));
-
-  return function middleware2(_x5, _x6) {
-    return _ref3.apply(this, arguments);
-  };
-}();
+const middleware2 = async (ctx, next) => {
+  console.log("I'll be logged second. ");
+  await next();
+  console.log("I'll be logged third. ");
+};
 
 // Dummy users.
-var users = [{ name: 'Alexandre' }, { name: 'Pooya' }, { name: 'Sébastien' }];
+const users = [{ name: 'Alexandre' }, { name: 'Pooya' }, { name: 'Sébastien' }];
 
-/* harmony default export */ __webpack_exports__["a"] = (function (app) {
+/* harmony default export */ __webpack_exports__["a"] = (app => {
 
   // Home page.
-  router.get('/', middleware1, middleware2, middleware3, function () {
-    var _ref4 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__home_jeff_Projects_MonsterCMS_node_modules_babel_runtime_regenerator___default.a.mark(function _callee4(ctx, next) {
-      return __WEBPACK_IMPORTED_MODULE_0__home_jeff_Projects_MonsterCMS_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
-        while (1) {
-          switch (_context4.prev = _context4.next) {
-            case 0:
-              ctx.type = 'json';
-              ctx.body = {
-                message: 'Hello World!'
-              };
+  router.get('/', middleware1, middleware2, middleware3, async (ctx, next) => {
+    ctx.type = 'json';
 
-            case 2:
-            case 'end':
-              return _context4.stop();
-          }
-        }
-      }, _callee4, _this);
-    }));
-
-    return function (_x7, _x8) {
-      return _ref4.apply(this, arguments);
+    ctx.body = {
+      message: 'Olá!'
     };
-  }());
+  });
 
   // Get all users.
-  router.get('/users', function () {
-    var _ref5 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__home_jeff_Projects_MonsterCMS_node_modules_babel_runtime_regenerator___default.a.mark(function _callee5(ctx, next) {
-      return __WEBPACK_IMPORTED_MODULE_0__home_jeff_Projects_MonsterCMS_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
-        while (1) {
-          switch (_context5.prev = _context5.next) {
-            case 0:
-              ctx.type = 'json';
-              ctx.body = users;
+  router.get('/users', jwt, async (ctx, next) => {
+    ctx.type = 'json';
+    ctx.body = users;
+  });
 
-            case 2:
-            case 'end':
-              return _context5.stop();
-          }
-        }
-      }, _callee5, _this);
-    }));
-
-    return function (_x9, _x10) {
-      return _ref5.apply(this, arguments);
-    };
-  }());
+  router.post('/api/login', async (ctx, next) => {
+    authenticate(_this);
+  });
 
   // Get the user by id.
-  router.get('/users/:id', function () {
-    var _ref6 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__home_jeff_Projects_MonsterCMS_node_modules_babel_runtime_regenerator___default.a.mark(function _callee6(ctx, next) {
-      var id;
-      return __WEBPACK_IMPORTED_MODULE_0__home_jeff_Projects_MonsterCMS_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee6$(_context6) {
-        while (1) {
-          switch (_context6.prev = _context6.next) {
-            case 0:
-              id = parseInt(ctx.params.id);
-
-              console.log(users[id]);
-              if (id >= 0 && id < users.length) {
-                ctx.body = users[id];
-              } else {
-                ctx.throw(404);
-              }
-
-            case 3:
-            case 'end':
-              return _context6.stop();
-          }
-        }
-      }, _callee6, _this);
-    }));
-
-    return function (_x11, _x12) {
-      return _ref6.apply(this, arguments);
-    };
-  }());
+  router.get('/users/:id', async (ctx, next) => {
+    const id = parseInt(ctx.params.id);
+    console.log(users[id]);
+    if (id >= 0 && id < users.length) {
+      ctx.body = users[id];
+    } else {
+      ctx.throw(404);
+    }
+  });
 
   return router.middleware();
 });
 
 /***/ }),
-/* 10 */
+/* 8 */
 /***/ (function(module, exports) {
 
 module.exports = require("koa-trie-router");
 
 /***/ }),
+/* 9 */
+/***/ (function(module, exports) {
+
+module.exports = require("fs");
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const koaJwt = __webpack_require__(11);
+
+module.exports = koaJwt({
+  secret: 'MonsterCMS' // Should not be hardcoded
+});
+
+/***/ }),
 /* 11 */
+/***/ (function(module, exports) {
+
+module.exports = require("koa-jwt");
+
+/***/ }),
+/* 12 */
 /***/ (function(module, exports) {
 
 module.exports = require("koa-mount");
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports) {
 
 // https://nuxtjs.org/api/configuration-build
@@ -517,6 +384,30 @@ module.exports = {
   ** Global CSS
   */
   css: ['~/assets/css/main.css']
+};
+
+/***/ }),
+/* 14 */,
+/* 15 */,
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const jwt = __webpack_require__(11);
+
+module.exports = function (ctx) {
+  if (ctx.request.body.password === 'password') {
+    ctx.status = 200;
+    ctx.body = {
+      token: jwt.sign({ role: 'admin' }, 'MonsterCMS'), //Should be the same secret key as the one used is ./jwt.js
+      message: "Successfully logged in!"
+    };
+  } else {
+    ctx.status = ctx.status = 401;
+    ctx.body = {
+      message: "Authentication failed"
+    };
+  }
+  return ctx;
 };
 
 /***/ })
