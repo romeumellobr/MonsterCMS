@@ -1,6 +1,5 @@
 
 ![MonsterCMS Logo](https://raw.githubusercontent.com/jersobh/MonsterCMS/master/assets/img/logo.png)
-Format: ![MonsterCMS](https://raw.githubusercontent.com/jersobh/MonsterCMS/master/assets/img/logo.png)
 ===========
 
 CMS rápido criado com Koa (Node) e Nuxt (VueJS)
