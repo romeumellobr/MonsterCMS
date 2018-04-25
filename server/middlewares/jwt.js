@@ -1,5 +1,5 @@
-const koaJwt = require('koa-jwt');
+const koaJwt = require('koa-jwt')
 
 module.exports = koaJwt({
-  secret: 'MonsterCMS', // Should not be hardcoded
-});
+  secret: 'MonsterCMS' // Should not be hardcoded
+})
