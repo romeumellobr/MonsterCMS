@@ -7,7 +7,7 @@
           Olá!
         </p>
         <p class="subtitle">
-          Everything you need to <strong>create a website</strong> with Bulma
+          Vamos configurar seu <strong>CMS</strong>
         </p>
       </div>
     </section>

@@ -1,10 +1,30 @@
 <template>
   <section class="section">
     <div class="container">
-      <h1 class="title">Section</h1>
-      <h2 class="subtitle">
-        A simple container to divide your page into <strong>sections</strong>, like the one you're currently reading
-      </h2>
+      <b-field type="is-dark" label="Banco de Dados">
+            <b-select placeholder="Selecione"  rounded>
+                <option value="flint">MySQL</option>
+                <option value="silver">PostgreSQL</option>
+            </b-select>
+        </b-field>
+        <b-field
+        type="is-dark"
+         label="Host">
+            <b-input rounded value=""></b-input>
+        </b-field>
+        <b-field label="Username"
+            type="is-dark"
+            message="This username is available">
+            <b-input rounded value="admin" maxlength="30"></b-input>
+        </b-field>
+
+        <b-field label="Password"
+            type="is-dark"
+            :message="['Password must have at least 8 characters']">
+            <b-input rounded value="" type="password" maxlength="30"></b-input>
+        </b-field>
+
+
     </div>
   </section>
 </template>
@@ -20,7 +40,7 @@ export default {
   },
   head () {
     return {
-      title: 'Nuxt + Koa'
+      title: 'Setup'
     }
   }
 }
@@ -38,4 +58,19 @@ p {
 .container {
   margin: auto;
 }
+
+.control {
+    font-size: 1rem;
+    position: relative;
+    text-align: center;
+    margin: 0;
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+      max-width: 25%;
+      width: 960px;
+  }
+}
+
 </style>
