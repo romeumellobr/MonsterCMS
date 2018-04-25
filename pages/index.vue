@@ -1,8 +1,12 @@
 <template>
-  <div>
-    <h1>{{ message }}</h1>
-    <p>This is Nuxt + Koa.</p>
-  </div>
+  <section class="section">
+    <div class="container">
+      <h1 class="title">Section</h1>
+      <h2 class="subtitle">
+        A simple container to divide your page into <strong>sections</strong>, like the one you're currently reading
+      </h2>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -29,5 +33,9 @@ h1 {
 
 p {
   font-size: 20px;
+}
+
+.container {
+  margin: auto;
 }
 </style>

@@ -1,19 +1,32 @@
 <template>
-  <div class="container dark">
-    <img src="~/assets/img/logo.png" alt="MonsterCMS Logo" class="logo" />
+  <div class="">
+    <adminMenu/>
+    <section class="hero is-dark">
+      <div class="hero-body">
+        <p class="title">
+          Olá!
+        </p>
+        <p class="subtitle">
+          Everything you need to <strong>create a website</strong> with Bulma
+        </p>
+      </div>
+    </section>
     <!-- Make sure to add the <nuxt/> component when creating a layout to display the page component. -->
     <!-- https://nuxtjs.org/guide/views#layouts -->
+
     <nuxt/>
-    <my-footer/>
+    <footer/>
   </div>
 </template>
 
 <script>
-import MyFooter from '~/components/footer.vue'
+import adminMenu from '~/components/admin_menu.vue'
+import footer from '~/components/footer.vue'
 
 export default {
   components: {
-    MyFooter
+    adminMenu,
+    footer
   }
 }
 </script>
