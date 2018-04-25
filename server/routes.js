@@ -1,9 +1,8 @@
 'use strict'
 
 import Router from 'koa-trie-router'
-const fs = require('fs');
-const jwt = require('./middlewares/jwt');
-const authenticate = require('./middlewares/authenticate.js');
+const jwt = require('./middlewares/jwt')
+const authenticate = require('./middlewares/authenticate.js')
 
 const router = new Router()
 
@@ -12,13 +11,13 @@ const middleware3 = async (ctx, next) => {
   await next()
 }
 
-const middleware1 = async(ctx, next) => {
+const middleware1 = async (ctx, next) => {
   console.log("I'll be logged first. ")
   await next()
   console.log("I'll be logged last. ")
 }
 
-const middleware2 = async(ctx, next) => {
+const middleware2 = async (ctx, next) => {
   console.log("I'll be logged second. ")
   await next()
   console.log("I'll be logged third. ")
@@ -28,19 +27,17 @@ const middleware2 = async(ctx, next) => {
 const users = [
   { name: 'Alexandre' },
   { name: 'Pooya' },
-  { name: 'Sébastien' },
+  { name: 'Sébastien' }
 ]
 
 export default (app) => {
-
   // Home page.
   router.get('/', middleware1, middleware2, middleware3, async (ctx, next) => {
     ctx.type = 'json'
 
     ctx.body = {
-        message: 'Olá!'
+      message: 'Olá!'
     }
-
   })
 
   // Get all users.
@@ -49,9 +46,9 @@ export default (app) => {
     ctx.body = users
   })
 
-  router.post('/api/login', async ( ctx, next) => {
-  authenticate(this);
-  });
+  router.post('/api/login', async (ctx, next) => {
+    authenticate(this)
+  })
 
   // Get the user by id.
   router.get('/users/:id', async (ctx, next) => {

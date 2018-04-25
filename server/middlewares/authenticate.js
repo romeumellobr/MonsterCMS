@@ -1,17 +1,17 @@
-const jwt = require('koa-jwt');
+const jwt = require('koa-jwt')
 
 module.exports = function (ctx) {
   if (ctx.request.body.password === 'password') {
-    ctx.status = 200;
+    ctx.status = 200
     ctx.body = {
-      token: jwt.sign({ role: 'admin' }, 'MonsterCMS'), //Should be the same secret key as the one used is ./jwt.js
-      message: "Successfully logged in!"
-    };
+      token: jwt.sign({ role: 'admin' }, 'MonsterCMS'), // Should be the same secret key as the one used is ./jwt.js
+      message: 'Successfully logged in!'
+    }
   } else {
-    ctx.status = ctx.status = 401;
+    ctx.status = ctx.status = 401
     ctx.body = {
-      message: "Authentication failed"
-    };
+      message: 'Authentication failed'
+    }
   }
-  return ctx;
+  return ctx
 }
