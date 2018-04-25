@@ -19,6 +19,10 @@ export default (app) => {
         ctx.throw(404)
       }
 
+      // if(ctx.res.status === 401){
+      //   ctx.redirect('/login')
+      // }
+
       // Use this when you want to format the 200 res further.
       // e.g. {"status":200,"data":{"message":"Hello home sample!"}}
       // else, you get, e.g. {"message":"Hello home sample!"}
@@ -29,6 +33,7 @@ export default (app) => {
         }
       }
     } catch (err) {
+      ctx.redirect('/auth/login')
       ctx.status = err.status || 500
 
       ctx.type = 'json'
